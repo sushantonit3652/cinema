@@ -7,37 +7,13 @@ import {
   Animated,
   Easing,
   TextInput,
+  Image,
+  TouchableOpacity,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-const loginScreen = () => {
-  const [isFocused, setIsFocused] = useState(false);
-  const [inputValue, setInputValue] = useState("");
-
-  const handleFocus = () => setIsFocused(true);
-  const handleBlur = () => setIsFocused(false);
-  const handleTextChange = (text) => setInputValue(text);
-  const animatedValue = new Animated.Value(0);
-  const translateY = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [0, -35],
-  });
-
-  const opacity = animatedValue.interpolate({
-    inputRange: [0, 1],
-    outputRange: [1, 0],
-  });
-
-  const animateLabel = () => {
-    Animated.timing(animatedValue, {
-      toValue: inputValue ? 1 : 0,
-      duration: 700,
-      easing: Easing.linear, // Change the easing function if needed
-      useNativeDriver: true,
-    }).start();
-  };
-
+const LoginScreen = ({ navigation }) => {
   return (
     <View style={styles.Screen}>
       <View style={styles.firstbox}>
@@ -61,44 +37,25 @@ const loginScreen = () => {
           Enter your data
         </Text>
       </View>
-
-      <View style={styles.container}>
-        {/* <Animated.Text style={[styles.label, { transform: [{ translateY }], opacity }]}>
-        USERNAME/MOBILENO
-      </Animated.Text> */}
-        <Animated.Text
-          style={[
-            styles.label,
-            opacity,
-            { transform: [{ translateY }] },
-            { top: isFocused || inputValue ? -35 : 10 },
-          ]}
-        >
-          USERNAME/MOBILENO
-        </Animated.Text>
+      <View style={styles.textView1}>
         <TextInput
-          style={styles.textInput}
-          placeholder={isFocused ? "Enter your username" : ""}
+          style={styles.textInput1}
+          placeholder={"Enter your username"}
           placeholderTextColor="grey"
-          onFocus={handleFocus}
-          onBlur={handleBlur}
-          onChangeText={handleTextChange}
-          onKeyPress={animateLabel}
-        />
+        ></TextInput>
       </View>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Enter your username"
-        placeholderTextColor="white"
-        label="USERNAME/MOBILENO"
-        textColor="#51bc8a"
-      ></TextInput>
-      <TextInput
-        style={styles.textInput}
-        placeholder="Enter your password"
-        placeholderTextColor={"white"}
-      ></TextInput>
-      <View style={styles.gradientContainer}>
+      <View style={styles.textView2}>
+        <TextInput
+          style={styles.textInput2}
+          placeholder="Enter your password"
+          placeholderTextColor="grey"
+        ></TextInput>
+        <Image source={require("../assets/Vector.png")}></Image>
+      </View>
+      <TouchableOpacity
+        style={styles.gradientContainer}
+        onPress={() => navigation.navigate("mytabsScreen")}
+      >
         <LinearGradient
           colors={["rgba(3, 164, 198, 1)", "rgba(0, 106, 130, 1)"]}
           start={{ x: 0, y: 0 }}
@@ -107,25 +64,25 @@ const loginScreen = () => {
         >
           <Text style={styles.get}>Log in</Text>
         </LinearGradient>
-      </View>
+      </TouchableOpacity>
+      <Text style={{ marginTop: 30 }}>
+        <Text style={{ color: "white" }}> Don't have account?</Text>
+        <Text
+          style={{ color: "rgba(60, 207, 239, 1)" }}
+          onPress={() => navigation.navigate("signupScreen")}
+        >
+          Sign up
+        </Text>
+      </Text>
     </View>
   );
 };
 const styles = StyleSheet.create({
-  label: {
-    position: "absolute",
-    left: 10,
-    color: "white",
-    backgroundColor: "black",
-    paddingHorizontal: 10,
-    paddingVertical: 10,
-  },
   textInput: {
     backgroundColor: "black",
     color: "white",
     borderRadius: 5,
-    paddingHorizontal: 10,
-    paddingVertical: 8,
+
     marginTop: 10,
   },
 
@@ -133,7 +90,6 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: "space-between",
     alignItems: "center",
-    marginBottom: 110,
   },
   Screen: {
     flex: 1,
@@ -154,11 +110,11 @@ const styles = StyleSheet.create({
     overflow: "hidden",
     justifyContent: "center",
     alignItems: "center",
+    marginTop: 140,
     // Set the border radius here
   },
   get: {
     color: "#ffffffde",
-    fontfamily: "Poppins-Medium",
     fontweight: 500,
     width: 92,
     justifyContent: "center",
@@ -166,7 +122,7 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
   city: {
-    borderWidth: 2, // Set the border width here
+    borderWidth: 1, // Set the border width here
     borderColor: "rgba(60, 207, 239, 1)", // Set the border color here
     borderRadius: 20,
     overflow: "hidden",
@@ -174,15 +130,42 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
   },
-  textInput: {
+  textInput1: {
     color: "white",
-    width: 340,
-    height: 60,
-    borderWidth: 1,
+    width: 280,
     borderColor: "white",
     borderRadius: 15,
-    marginBottom: 60,
-    paddingLeft: 20,
+  },
+  textInput2: {
+    color: "white",
+    width: 280,
+    paddingLeft: 14,
+    borderColor: "white",
+    borderRadius: 15,
+  },
+  textView1: {
+    height: 60,
+    width: 340,
+    borderWidth: 1, // Set the border width here
+    borderColor: "white", // Set the border color here
+    borderRadius: 20,
+    overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: 50,
+  },
+  textView2: {
+    height: 60,
+    width: 340,
+    borderWidth: 1, // Set the border width here
+    borderColor: "white", // Set the border color here
+    borderRadius: 20,
+    overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
+    flexDirection: "row",
+    marginTop: 40,
   },
 });
-export default loginScreen;
+export default LoginScreen;

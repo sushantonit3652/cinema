@@ -1,9 +1,9 @@
 import React from "react";
-import { SafeAreaView, Text, StyleSheet, View } from "react-native";
+import { SafeAreaView, Text, StyleSheet, View, TouchableOpacity } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { FontAwesomeIcon } from "@fortawesome/react-native-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-const welocpmeScereen = ({navigation}) => {
+const WelocpmeScereen = ({navigation}) => {
   return (
     <View style={styles.Screen}>
       <View style={styles.firstbox}>
@@ -38,7 +38,7 @@ const welocpmeScereen = ({navigation}) => {
           </LinearGradient>
         </View>
       </View>
-      <View style={styles.gradientContainer}>
+      <TouchableOpacity style={styles.gradientContainer} onPress={() => navigation.navigate("loginScreen")}>
         <LinearGradient
           colors={["rgba(3, 164, 198, 1)", "rgba(0, 106, 130, 1)"]}
           start={{ x: 0, y: 0 }}
@@ -47,12 +47,12 @@ const welocpmeScereen = ({navigation}) => {
         >
           <Text
             style={styles.get}
-            onPress={() => navigation.navigate("loginScreen")}
+           
           >
             Continue
           </Text>
         </LinearGradient>
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -85,7 +85,7 @@ const styles = StyleSheet.create({
   },
   get: {
     color: "#ffffffde",
-    fontfamily: "Poppins-Medium",
+   
     fontweight: 500,
     width: 92,
     justifyContent: "center",
@@ -114,4 +114,4 @@ const styles = StyleSheet.create({
     justifyContent:'space-between'
   },
 });
-export default welocpmeScereen;
+export default WelocpmeScereen;
