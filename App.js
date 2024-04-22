@@ -14,18 +14,42 @@ const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="mytabsScreen">
+      <Stack.Navigator initialRouteName="startScreen">
         <Stack.Screen
           options={{ headerShown: false }}
           name="startScreen"
           component={starts}
         />
-        <Stack.Screen name="welcomeScreen" component={welocpmeScereen} />
-        <Stack.Screen name="loginScreen" component={loginScreen} />
-        <Stack.Screen name="signupScreen" component={SignupScreen} />
-        <Stack.Screen name="homeScreen" component={HomeScreen} />
-        <Stack.Screen name="mytabsScreen" component={MyTabs} options={{headerShown:false}} />
-        <Stack.Screen name="movieDetailScreen" component={MovieDetailScreen} />
+        <Stack.Screen
+          name="welcomeScreen"
+          component={welocpmeScereen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="loginScreen"
+          component={loginScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="signupScreen"
+          component={SignupScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="homeScreen"
+          component={HomeScreen}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="mytabsScreen"
+          component={MyTabs}
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="movieDetailScreen"
+          component={MovieDetailScreen}
+          options={{ headerShown: false }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

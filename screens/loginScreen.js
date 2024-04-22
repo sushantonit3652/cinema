@@ -50,7 +50,7 @@ const LoginScreen = ({ navigation }) => {
           placeholder="Enter your password"
           placeholderTextColor="grey"
         ></TextInput>
-        <Image source={require("../assets/Vector.png")}></Image>
+        <Image source={require("../assets/eye.png")}></Image>
       </View>
       <TouchableOpacity
         style={styles.gradientContainer}

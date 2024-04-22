@@ -113,7 +113,7 @@ const SignupScreen = ({ navigation }) => {
           onFocus={() => animateLabelUp(passwordLabelPosition)}
           onBlur={() => animateLabelDown(passwordLabelPosition)}
         ></TextInput>
-        <Image source={require("../assets/Vector.png")}></Image>
+        <Image source={require("../assets/eye.png")}></Image>
       </View>
       <View style={styles.textView4}>
         <Animated.Text
@@ -131,7 +131,7 @@ const SignupScreen = ({ navigation }) => {
           onFocus={() => animateLabelUp(confirmPasswordLabelPosition)}
           onBlur={() => animateLabelDown(confirmPasswordLabelPosition)}
         ></TextInput>
-        <Image source={require("../assets/Vector.png")}></Image>
+        <Image source={require("../assets/eye.png")}></Image>
       </View>
       <View style={styles.gradientContainer}>
         <LinearGradient
