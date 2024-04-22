@@ -3,15 +3,18 @@ import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityI
 import HomeScreen from "../screens/homeScreen";
 import ProfileScreen from "../screens/profileScreen";
 import MovieScreen from "../screens/movieScreen";
+import LocationScreen from "./locationScreen";
+import MobileTicketScreen from "./mobileTicketScreen";
+
 const Tab = createMaterialBottomTabNavigator();
 
 const MyTabs = () => {
   return (
     <Tab.Navigator
-      initialRouteName="Home"
+      initialRouteName="MovieScreen"
       activeColor="white"
       inactiveColor="white"
-      barStyle={{ backgroundColor: "rgba(60, 207, 239, 1)" }}
+      barStyle={{ backgroundColor:["#130B2B", "#120A2B"] }}
     >
       <Tab.Screen
         name="homeScreen"
@@ -24,12 +27,32 @@ const MyTabs = () => {
         }}
       />
       <Tab.Screen
+        name="locationScreen"
+        component={LocationScreen}
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="map" color={color} size={26} />
+          ),
+        }}
+      />
+      <Tab.Screen
         name="movieScreen"
         component={MovieScreen}
         options={{
           tabBarLabel: "",
           tabBarIcon: ({ color }) => (
             <MaterialCommunityIcons name="movie" color={color} size={26} />
+          ),
+        }}
+      />
+        <Tab.Screen
+        name="mobileTicketScreen"
+        component={MobileTicketScreen}
+        options={{
+          tabBarLabel: "",
+          tabBarIcon: ({ color }) => (
+            <MaterialCommunityIcons name="box" color={color} size={26} />
           ),
         }}
       />

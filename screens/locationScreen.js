@@ -1,7 +1,7 @@
 import React from "react";
 import { SafeAreaView, Text, StyleSheet } from "react-native";
 
-const ProfileScreen = ({}) => {
+const LocationScreen = ({}) => {
   return (
     <SafeAreaView style={styles.container}>
       <Text>Profile</Text>
@@ -14,4 +14,4 @@ const styles = StyleSheet.create({
     flex: 1,justifyContent:'center',alignItems:'center'
   },
 });
-export default ProfileScreen;
+export default LocationScreen;

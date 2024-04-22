@@ -9,11 +9,12 @@ import loginScreen from "./screens/loginScreen";
 import SignupScreen from "./screens/signupScreen";
 import HomeScreen from "./screens/homeScreen";
 import MyTabs from "./screens/mytabsScreen";
+import MovieDetailScreen from "./screens/movieDetailScreen";
 const Stack = createNativeStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="mytabsScreen">
         <Stack.Screen
           options={{ headerShown: false }}
           name="startScreen"
@@ -23,7 +24,8 @@ export default function App() {
         <Stack.Screen name="loginScreen" component={loginScreen} />
         <Stack.Screen name="signupScreen" component={SignupScreen} />
         <Stack.Screen name="homeScreen" component={HomeScreen} />
-        <Stack.Screen name="mytabsScreen" component={MyTabs} />
+        <Stack.Screen name="mytabsScreen" component={MyTabs} options={{headerShown:false}} />
+        <Stack.Screen name="movieDetailScreen" component={MovieDetailScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

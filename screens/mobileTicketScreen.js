@@ -1,17 +1,17 @@
 import React from "react";
 import { SafeAreaView, Text, StyleSheet } from "react-native";
 
-const ProfileScreen = ({}) => {
+const MobileTicketScreen = ({}) => {
   return (
     <SafeAreaView style={styles.container}>
-      <Text>Profile</Text>
+      <Text>MobileTicketScreen</Text>
     </SafeAreaView>
   );
 };
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "green",
+    backgroundColor: "pink",
     flex: 1,justifyContent:'center',alignItems:'center'
   },
 });
-export default ProfileScreen;
+export default MobileTicketScreen;
